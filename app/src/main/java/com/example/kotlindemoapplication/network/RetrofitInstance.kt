@@ -19,7 +19,6 @@ class RetrofitInstance {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
-
         }
     }
 }

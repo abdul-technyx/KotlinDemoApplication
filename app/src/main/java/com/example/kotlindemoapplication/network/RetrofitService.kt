@@ -9,5 +9,4 @@ interface RetrofitService {
     //end for getting book list on searching
     @GET("volumes")
     fun getBookListFromAPI(@Query("q") query: String): Observable<BookListModel>
-
 }

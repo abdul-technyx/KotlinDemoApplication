@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="volumeInfo"
+            type="com.example.kotlindemoapplication.network.VolumeInfo" />
+
+    </data>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -11,6 +18,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
+        bind:image="@{volumeInfo.volumeInfo.imageLinks.smallThumbnail != null ? volumeInfo.volumeInfo.imageLinks.smallThumbnail : @string/imageUrl}"
+        bind:placeholder="@{@drawable/download}"
         android:layout_margin="10dp" />
 
     <LinearLayout
@@ -24,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textColor="@color/purple_200"
+            android:text="@{volumeInfo.volumeInfo.title != null ? volumeInfo.volumeInfo.title : @string/book}"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -32,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{volumeInfo.volumeInfo.publisher != null ? volumeInfo.volumeInfo.publisher : @string/publisher}"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -41,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:maxLines="3"
+            android:text="@{volumeInfo.volumeInfo.description != null ? volumeInfo.volumeInfo.description : @string/description}"
             android:textColor="#d5d5d5"
             android:textSize="14sp" />
 
